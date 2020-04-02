@@ -12,8 +12,8 @@ const server = new Server(
 let db = pg()(process.env.DATABASE_URL)
 
 server.auth((userId, token) => {
-  // Allow only local users until we will have a proper authentication
-  return process.env.NODE_ENV === 'development'
+  // Allow users until we will have a proper authentication
+  return true;
 })
 
 server.listen()

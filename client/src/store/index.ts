@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { createLogux } from '@logux/vuex';
 import { badge, badgeEn, log } from '@logux/client';
-import { badgeStyles } from '@logux/client/badge/styles';
+import { badgeStyles } from '@logux/client/badge/styles'; // eslint-disable-line
 
 Vue.use(Vuex);
 
@@ -17,8 +17,12 @@ const Logux = createLogux({
 
 const store = new Logux.Store({
   state: {
+    count: 0,
   },
   mutations: {
+    increment(state) {
+      state.count += 1;
+    },
   },
   actions: {
   },
