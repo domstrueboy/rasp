@@ -7,8 +7,17 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/add-event',
+    name: 'Add Event',
+    component: () => import(/* webpackChunkName: "about" */ '../views/AddEvent.vue'),
   },
   {
     path: '/about',
