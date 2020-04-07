@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "server"
+		},
+		{
+			"path": "public-server"
 		}
 	],
 	"settings": {}
