@@ -1,4 +1,3 @@
-import 'package:chat_app/pages/SplashPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Chat app',
+      title: 'Rasp',
       theme: ThemeData(
           primarySwatch: Colors.pink,
           backgroundColor: Colors.pink,
