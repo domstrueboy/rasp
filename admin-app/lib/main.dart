@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Rasp',
       theme: ThemeData(
-          primarySwatch: Colors.pink,
+          primarySwatch: Colors.indigo,
           backgroundColor: Colors.pink,
-          accentColor: Colors.deepPurple,
+          accentColor: Colors.indigoAccent,
           accentColorBrightness: Brightness.dark,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           buttonTheme: ButtonTheme.of(context).copyWith(
