@@ -8,7 +8,6 @@ class AuthForm extends StatefulWidget {
 
   final void Function(
     String email,
-    String username,
     String password,
     File image,
     bool isLogin,
@@ -27,7 +26,6 @@ class _AuthFormState extends State<AuthForm> {
   var _isLogin = true;
 
   var _userEmail = '';
-  var _userName = '';
   var _userPassword = '';
 
   File _userImageFile;
@@ -44,7 +42,6 @@ class _AuthFormState extends State<AuthForm> {
       _formKey.currentState.save();
       widget.submitAuthForm(
         _userEmail.trim(),
-        _userName.trim(),
         _userPassword.trim(),
         _userImageFile,
         _isLogin,
@@ -83,21 +80,6 @@ class _AuthFormState extends State<AuthForm> {
                       _userEmail = value;
                     },
                   ),
-                  if (!_isLogin)
-                    TextFormField(
-                      key: ValueKey('username'),
-                      autocorrect: false,
-                      textCapitalization: TextCapitalization.words,
-                      enableSuggestions: false,
-                      decoration: InputDecoration(labelText: 'Username'),
-                      validator: (value) {
-                        if (value.isNotEmpty) return null;
-                        return 'Please enter a username';
-                      },
-                      onSaved: (value) {
-                        _userName = value;
-                      },
-                    ),
                   TextFormField(
                     key: ValueKey('password'),
                     decoration: InputDecoration(labelText: 'Password'),

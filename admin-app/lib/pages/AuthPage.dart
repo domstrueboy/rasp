@@ -19,7 +19,6 @@ class _AuthPageState extends State<AuthPage> {
 
   void _submitAuthForm(
     String email,
-    String username,
     String password,
     File image,
     bool isLogin,
@@ -54,9 +53,8 @@ class _AuthPageState extends State<AuthPage> {
             .collection('users')
             .document(authResult.user.uid)
             .setData({
-          'username': username,
           'email': email,
-          'image_url': url,
+          'imageUrl': url,
         });
       }
     } on PlatformException catch (err) {

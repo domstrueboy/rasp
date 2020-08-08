@@ -14,7 +14,7 @@ class Profiles with ChangeNotifier {
       final profileData =
           await Firestore.instance.collection('users').document(uid).get();
       _profiles[uid] = Profile(
-        title: profileData['username'],
+        email: profileData['email'],
         imageUrl: profileData['imageUrl'],
       );
     }
