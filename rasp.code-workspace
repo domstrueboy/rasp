@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "admin-app"
+		},
+		{
+			"path": "web-client"
 		}
 	],
 	"settings": {}
