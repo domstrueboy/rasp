@@ -1,13 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "./client"
-		},
-		{
-			"path": "server"
-		},
-		{
-			"path": "public-server"
+			"path": "admin-app"
 		}
 	],
 	"settings": {}
