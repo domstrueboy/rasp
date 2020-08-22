@@ -25,7 +25,6 @@ class ProfilePage extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else {
-            print(profileSnap.data);
             return Consumer<Profiles>(builder: (ctx, profileData, child) {
               var profile = profileData.profiles[userId];
               return Scaffold(
