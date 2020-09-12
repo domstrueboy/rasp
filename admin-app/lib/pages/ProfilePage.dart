@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/Profiles.dart';
-import '../models/Profile.dart';
+import '../components/headers/DefaultHeader.dart';
 
 class ProfilePage extends StatelessWidget {
   final String userId;
@@ -28,44 +28,10 @@ class ProfilePage extends StatelessWidget {
             return Consumer<Profiles>(builder: (ctx, profileData, child) {
               var profile = profileData.profiles[userId];
               return Scaffold(
-                appBar: AppBar(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    backgroundImage: profile.imageUrl == null
-                        ? null
-                        : NetworkImage(profile.imageUrl),
-                    child:
-                        profile.imageUrl == null ? Text(profile.email) : null,
-                  ),
-                  title: Text(profile.email),
-                  actions: [
-                    DropdownButton(
-                      underline: Container(),
-                      icon: Icon(
-                        Icons.more_vert,
-                        color: Theme.of(context).primaryIconTheme.color,
-                      ),
-                      items: [
-                        DropdownMenuItem(
-                          child: Container(
-                            child: Row(
-                              children: [
-                                Icon(Icons.exit_to_app),
-                                SizedBox(width: 12),
-                                Text('Logout'),
-                              ],
-                            ),
-                          ),
-                          value: 'logout',
-                        )
-                      ],
-                      onChanged: (itemIdentifier) {
-                        if (itemIdentifier == 'logout') {
-                          FirebaseAuth.instance.signOut();
-                        }
-                      },
-                    )
-                  ],
+                appBar: DefaultHeader(
+                  appBar: AppBar(),
+                  profile: profile,
+                  signOut: () => FirebaseAuth.instance.signOut(),
                 ),
                 body: Center(
                   child: Text(profile.email),
