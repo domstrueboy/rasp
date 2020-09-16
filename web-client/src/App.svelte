@@ -1,12 +1,13 @@
 <script lang="ts">
-	let promise = getUsers();
+	let promise = getUser();
 
-	async function getUsers() {
-		const res = await fetch(`https://firestore.googleapis.com/v1/projects/chat-app-17136/databases/(default)/documents/users`);
+	async function getUser() {
+		const userId = window.location.pathname.slice(1).split('/')[0];
+		const res = await fetch(`https://firestore.googleapis.com/v1/projects/chat-app-17136/databases/(default)/documents/users/${userId}`);
 		const json = await res.json();
 
 		if (res.ok) {
-			return json.documents;
+			return json;
 		} else {
 			throw new Error(json);
 		}
@@ -16,9 +17,9 @@
 <main>
 	{#await promise}
 		<p>...waiting</p>
-	{:then users}
-		<p>Profile is {users[0].fields.email.stringValue}</p>
-		<img src="{users[0].fields.imageUrl.stringValue}" alt="">
+	{:then user}
+		<p>Profile is {user.fields.email.stringValue}</p>
+		<img src="{user.fields.imageUrl.stringValue}" alt="">
 	{:catch error}
 		<p style="color: red">{error.message}</p>
 	{/await}
