@@ -3,7 +3,7 @@
 
 	async function getUser() {
 		const userId = window.location.pathname.slice(1).split('/')[0];
-		const res = await fetch(`https://firestore.googleapis.com/v1/projects/chat-app-17136/databases/(default)/documents/users/${userId}`);
+		const res = await fetch(`https://firestore.googleapis.com/v1/projects/chat-app-17136/databases/(default)/documents/users/${userId}/events`);
 		const json = await res.json();
 
 		if (res.ok) {
