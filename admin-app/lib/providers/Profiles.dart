@@ -13,6 +13,17 @@ class Profiles with ChangeNotifier {
     if (_profiles[uid] == null) {
       final profileData =
           await Firestore.instance.collection('users').document(uid).get();
+
+      // Just for testing
+      QuerySnapshot querySnapshot = await Firestore.instance
+          .collection('users')
+          .document(uid)
+          .collection('events')
+          .getDocuments();
+      final events = querySnapshot.documents;
+      print(events[0]['title']);
+      //
+
       _profiles[uid] = Profile(
         email: profileData['email'],
         title: profileData['title'],
