@@ -18,7 +18,7 @@ class DefaultHeader extends StatelessWidget implements PreferredSizeWidget {
             profile.imageUrl == null ? null : NetworkImage(profile.imageUrl),
         child: profile.imageUrl == null ? Text(profile.email) : null,
       ),
-      title: Text(profile.email),
+      title: profile.title == null ? Text(profile.email) : Text(profile.title),
       actions: [
         DropdownButton(
           underline: Container(),

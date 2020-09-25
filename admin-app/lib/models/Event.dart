@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 
 class Event {
   final String title;
-  final DateTime from;
-  final DateTime till;
+  final Timestamp from;
+  final Timestamp till;
 
   Event({
     @required this.title,
